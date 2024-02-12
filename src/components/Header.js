@@ -2,14 +2,19 @@ import { View, Text, StyleSheet, useWindowDimensions } from "react-native";
 import colors from "../utils/globals/colors";
 import ButtonCustom from "../components/ButtonCustom";
 
-const Header = ({ title = "Ecommerce" }) => {
+const Header = ({ title = "Ecommerce", fCambiarPantalla, nombrePantallaAnterior  }) => {
     const windowWidth = useWindowDimensions().width;
-    const buttonLeftValue = windowWidth *  0.4; // Calcula el valor para 'left'
+    const buttonLeftValue = (windowWidth / 2).toFixed(0) ; // Calcula el valor para 'left'
+    console.log(windowWidth)
+    console.log(buttonLeftValue)
 
+    //<ButtonCustom style={styles.button} title={"<-"} onPress={() => fCambiarPantalla(nombrePantallaAnterior)} />
     return (
         <View style={styles.container}>
-            <ButtonCustom style={styles.button} title={"<-"} onPress={() => navigat} />
-            <Text style={{...styles.text, left: buttonLeftValue }}>{title}</Text>
+            {title !== "Home" && (
+                <ButtonCustom style={styles.button} title={"<-"} onPress={() => fCambiarPantalla(nombrePantallaAnterior)} />
+            )}
+            <Text style={{...styles.text, left: "50%" }}>{title}</Text>
         </View>
     );
 };

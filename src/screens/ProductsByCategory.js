@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import ProductByCategory from '../components/ProductByCategory'
 import Search from '../components/Search'
 
-const ProductsByCategory = ({categorySelected}) => {
+const ProductsByCategory = ({categorySelected,selectedProductId, selectedCategoryState}) => {
 
   const [productsFiltered,setProductsFiltered] = useState([])
   const [keyword,setKeyword] = useState("")
@@ -25,12 +25,12 @@ const ProductsByCategory = ({categorySelected}) => {
 
   return (
     <>
-        <Header title={categorySelected}/>
+        <Header title={categorySelected} fCambiarPantalla ={selectedCategoryState} nombrePantallaAnterior={""}/>
         <Search handlerKeyword={handlerKeyword}/>
         <FlatList
           data={productsFiltered}
           keyExtractor={item => item.id}
-          renderItem={({item})=> <ProductByCategory item={item}/>}
+          renderItem={({item})=> <ProductByCategory selectedProductId={selectedProductId} item={item}/>}
         />
     </>
   )
