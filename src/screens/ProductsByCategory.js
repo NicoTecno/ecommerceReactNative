@@ -12,6 +12,7 @@ const ProductsByCategory = ({categorySelected,selectedProductId, selectedCategor
 
   const handlerKeyword = (k) => {
     setKeyword(k)
+    
   }
   useEffect(()=>{
    if(categorySelected)  setProductsFiltered(products.filter(product => product.category === categorySelected))
