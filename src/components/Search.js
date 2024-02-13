@@ -52,17 +52,21 @@ export default Search
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:colors.green1,
+        backgroundColor:colors.verdeClaro,
         flexDirection:"row",
         padding:10,
-        alignItems:"center"
+        alignItems:"center",
+        borderWidth:6,
+        borderColor:colors.verdeOscuro,
+        borderRadius:1
     },
     input:{
         flex:1,
         borderWidth:2,
         paddingHorizontal:10,
         paddingVertical:5,
-        borderRadius:5
+        borderRadius:5,
+        backgroundColor:colors.blanco
     },
     errorText:{
         color:"red",

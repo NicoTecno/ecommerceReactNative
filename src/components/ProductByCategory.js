@@ -16,7 +16,7 @@ export default ProductByCategory
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:colors.green3,
+        backgroundColor:colors.verdeClaro,
         width:"80%",
         marginHorizontal:"10%",
         padding:10,
@@ -24,12 +24,15 @@ const styles = StyleSheet.create({
         borderRadius:5,
         flexDirection:"row",
         alignItems:"center",
+        borderWidth:2,
         gap:20
     },
     text:{
         width:"60%",
-        fontSize:16,
-        fontFamily:fonts.PlayfairDisplaySCRegular
+        fontSize:20,
+        fontFamily:fonts.PlayfairDisplaySCRegular,
+        textAlign:"center",
+        fontWeight:"500"
     },
     image:{
         minWidth:90,
