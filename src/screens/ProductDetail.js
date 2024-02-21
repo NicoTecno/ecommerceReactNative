@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 import colors from '../utils/globals/colors'
 import Header from '../components/Header'
 
-const ProductDetail = ({productId,portrait, fCambiarPantalla}) => {
-
+const ProductDetail = ({route}) => {
+  const {productId} = route.params
   const [product,setProduct] = useState({})
 
   useEffect(()=>{
@@ -15,18 +15,17 @@ const ProductDetail = ({productId,portrait, fCambiarPantalla}) => {
 
   return (
     <View style={styles.container}>
-    <Header title="Detalle del producto" fCambiarPantalla={fCambiarPantalla} nombrePantallaAnterior = {0}/>
-    <View style={[styles.content,!portrait && {flexDirection:"row",gap:10,padding:20}] } >
+    <View style={styles.content} >
         <Image
-          style={[styles.image,!portrait && {width:"40%",height:200}]}
+          style={styles.image}
           source={{uri:product?.images ? product.images[0] : null}}
           resizeMode='cover'
         />
-        <View style={[styles.containerText,!portrait && {width:"30%"}]}>
+        <View style={styles.containerText}>
           <Text style={styles.title}>{product.title}</Text>
           <Text>{product.description}</Text>
         </View>
-        <View style={[styles.containerPrice ,!portrait && {width:"20%",flexDirection:"column"}]}>
+        <View style={styles.containerPrice }>
           <Text style={styles.price}>$ {product.price}</Text>
           <Pressable style={styles.buyNow}>
             <Text style={styles.buyNowText}>Buy Now</Text>
@@ -38,6 +37,7 @@ const ProductDetail = ({productId,portrait, fCambiarPantalla}) => {
 }
 
 export default ProductDetail
+
 
 const styles = StyleSheet.create({
   container:{

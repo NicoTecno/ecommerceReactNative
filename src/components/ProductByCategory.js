@@ -3,10 +3,10 @@ import React from 'react'
 import colors from '../utils/globals/colors'
 import fonts from '../utils/globals/fonts'
 
-const ProductByCategory = ({item ,selectedProductId}) => {
+const ProductByCategory = ({item,navigation}) => {
   return (
-    <Pressable onPress={()=>selectedProductId(item.id)} style={styles.container}>
-      <Text style={styles.text}> {item.title}</Text>
+    <Pressable onPress={()=>navigation.navigate("ProductDetail",{productId:item.id})} style={styles.container}>
+      <Text style={styles.text}>{item.id} {item.title}</Text>
       <Image style={styles.image} source={{uri:item.thumbnail}} resizeMode="cover"/>
     </Pressable>
   )

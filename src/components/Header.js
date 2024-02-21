@@ -1,19 +1,19 @@
-import { View, Text, StyleSheet, useWindowDimensions } from "react-native";
-import colors from "../utils/globals/colors";
-import ButtonCustom from "../components/ButtonCustom";
+import { View , Text ,StyleSheet,Platform ,StatusBar, Pressable } from "react-native"
+import colors from "../utils/globals/colors"
+import {AntDesign} from "@expo/vector-icons"
 
-const Header = ({ title = "Ecommerce", fCambiarPantalla, nombrePantallaAnterior }) => {
-    return (
-        <View style={styles.container}>
-            {title !== "Home" && (
-                <ButtonCustom style={styles.button} title={"<-"} onPress={() => fCambiarPantalla(nombrePantallaAnterior)} />
-            )}
-            <Text style={styles.text}>{title}</Text>
-        </View>
-    );
-};
+const Header = ({title="Ecommerce",navigation}) => {
 
-export default Header;
+    return  <View style={styles.container}>
+                {navigation.canGoBack() && 
+                <Pressable style={styles.goBack} onPress={()=>navigation.goBack()}>
+                    <AntDesign name="arrowleft" size={25} color="black"/>
+                </Pressable>}
+                <Text style={styles.text}>{title}</Text>
+            </View>
+}
+
+export default Header
 
 const styles = StyleSheet.create({
     container: {
