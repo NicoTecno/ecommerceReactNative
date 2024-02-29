@@ -3,7 +3,8 @@ const colors = {
     verdeItermedio: "#038C5A",
     verdeClaro:"#04BF7B",
     blanco:"#F2F2F2",
-    negro:"#0D0D0D"
+    negro:"#0D0D0D",
+    rojo: "#D91A2A"
 }
 
 export default colors

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View,Image,Pressable } from 'react-native'
 import products from '../utils/data/products.json'
 import { useEffect, useState } from 'react'
 import colors from '../utils/globals/colors'
-import Header from '../components/Header'
+import Counter from '../components/Counter'
 
 const ProductDetail = ({route}) => {
   const {productId} = route.params
@@ -12,6 +12,8 @@ const ProductDetail = ({route}) => {
     const productFinded = products.find(product => product.id === productId)
     setProduct(productFinded)
   },[productId])
+
+
 
   return (
     <View style={styles.container}>
@@ -27,9 +29,10 @@ const ProductDetail = ({route}) => {
         </View>
         <View style={styles.containerPrice }>
           <Text style={styles.price}>$ {product.price}</Text>
-          <Pressable style={styles.buyNow}>
-            <Text style={styles.buyNowText}>Buy Now</Text>
-          </Pressable>
+          <Counter 
+            initialValue={1}
+            product={product} 
+            textButton="Agregar al carrito" />
         </View>
       </View>
     </View>

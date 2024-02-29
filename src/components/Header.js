@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
         width: "100%",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-between" // Asegura que haya espacio entre los elementos
+        justifyContent: "space-between" // Asegura que haya espacio entre los elementos,
+        
     },
     text: {
         flex:  1, // Ocupa el espacio restante, centrando el texto
