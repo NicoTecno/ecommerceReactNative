@@ -16,20 +16,20 @@ const CardCategory = ({item,navigation}) => {
 export default CardCategory
 
 const styles = StyleSheet.create({
-    container:{
-        width:"80%",
-        backgroundColor:colors.verdeClaro,
-        marginHorizontal:"10%",
-        marginVertical:10,
-        padding:20,
-        alignItems:"center",
-        borderWidth:2,
-        borderRadius:25
-    },
-    text:{
-        fontSize:22,
-        fontFamily:fonts.JosefinSansBold,
+  container:{
+      width:"80%",
+      backgroundColor:colors.verdeClaro,
+      marginHorizontal:"10%",
+      marginVertical:10,
+      padding:20,
+      alignItems:"center",
+      borderWidth:2,
+      borderRadius:25
+  },
+  text:{
+      fontSize:22,
+      fontFamily:fonts.JosefinSansBold,
 
-        
-    }
+      
+  }
 })

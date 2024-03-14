@@ -16,7 +16,7 @@ const CartItem = ({item}) => {
                 <Text style={styles.text2}>Precio: ${item.price} </Text>
             </View>
             <Pressable onPress={()=> dispatch(deleteCartItem(item.id))}>
-                <Entypo name="trash" size={30}  color={colors.rojo}/>
+                <Entypo name="trash" size={30} color="black"/>
             </Pressable>
             
         </View>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
         flexDirection:"row",
         justifyContent:"space-between",
-        height:100,
+        height:140,
         alignItems:"center"
     },
     textContainer:{

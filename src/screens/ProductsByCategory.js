@@ -1,27 +1,38 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
-import products from '../utils/data/products.json'
-import Header from '../components/Header'
 import { useEffect, useState } from 'react'
 import ProductByCategory from '../components/ProductByCategory'
 import Search from '../components/Search'
+import { useGetProductsByCategoryQuery } from '../app/services/shop'
+//
+import { useGetProductsQuery } from '../app/services/shop'
 
 const ProductsByCategory = ({navigation,route}) => {
 
   const {categorySelected} = route.params
+  //const {data:products,isError,isLoading,isSuccess,error} = useGetProductsByCategoryQuery(categorySelected)
   const [productsFiltered,setProductsFiltered] = useState([])
   const [keyword,setKeyword] = useState("")
+
+  //probando obtener productos
+  //const {data:products, isLoading} = useGetProductsByCategoryQuery("Procesador")
+  const {data:products, isLoading} = useGetProductsQuery()
 
   const handlerKeyword = (k) => {
     setKeyword(k)
   }
+
   useEffect(()=>{
-   if(categorySelected)  setProductsFiltered(products.filter(product => product.category === categorySelected))
-   if(keyword) setProductsFiltered(productsFiltered.filter(product => {
+   //setProductsFiltered(products)
+   if(categorySelected && products)  setProductsFiltered(products.filter(product => product.category === categorySelected))
+   if(keyword) setProductsFiltered(products.filter(product => {
     const productTitleLower = product.title.toLowerCase()
     const keywordLower = keyword.toLowerCase()
     return productTitleLower.includes(keywordLower)
   }))
-  },[categorySelected,keyword])
+  },[categorySelected,keyword,products])
+  
+
+  if(isLoading) return <View><Text>cargando...</Text></View>
 
 
   return (
@@ -39,3 +50,5 @@ const ProductsByCategory = ({navigation,route}) => {
 export default ProductsByCategory
 
 const styles = StyleSheet.create({})
+
+

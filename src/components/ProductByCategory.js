@@ -15,28 +15,28 @@ const ProductByCategory = ({item,navigation}) => {
 export default ProductByCategory
 
 const styles = StyleSheet.create({
-    container:{
-        backgroundColor:colors.verdeClaro,
-        width:"80%",
-        marginHorizontal:"10%",
-        padding:10,
-        marginVertical:10,
-        borderRadius:5,
-        flexDirection:"row",
-        alignItems:"center",
-        borderWidth:2,
-        gap:20
-    },
-    text:{
-        width:"60%",
-        fontSize:20,
-        fontFamily:fonts.PlayfairDisplaySCRegular,
-        textAlign:"center",
-        fontWeight:"500"
-    },
-    image:{
-        minWidth:90,
-        minHeight:90,
-        borderRadius:5
-    }
+  container:{
+      backgroundColor:colors.verdeClaro,
+      width:"80%",
+      marginHorizontal:"10%",
+      padding:10,
+      marginVertical:10,
+      borderRadius:5,
+      flexDirection:"row",
+      alignItems:"center",
+      borderWidth:2,
+      gap:20
+  },
+  text:{
+      width:"60%",
+      fontSize:20,
+      fontFamily:fonts.PlayfairDisplaySCRegular,
+      textAlign:"center",
+      fontWeight:"500"
+  },
+  image:{
+      minWidth:90,
+      minHeight:90,
+      borderRadius:5
+  }
 })

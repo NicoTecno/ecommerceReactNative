@@ -1,8 +1,12 @@
 import { StyleSheet, Text, View,FlatList } from 'react-native'
-import categories from '../utils/data/categories.json'
+import { useGetCategoriesQuery } from '../app/services/shop'
+
 import CardCategory from './CardCategory'
 
 const Categories = ({navigation}) => {
+
+  const {data:categories} = useGetCategoriesQuery()
+  
   return (
     <FlatList
     data={categories}
@@ -14,4 +18,4 @@ const Categories = ({navigation}) => {
 
 export default Categories
 
-const styles = StyleSheet.create({}) 
+const styles = StyleSheet.create({})
