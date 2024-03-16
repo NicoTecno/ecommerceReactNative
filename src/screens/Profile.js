@@ -5,8 +5,11 @@ import { useGetImageQuery, useGetUserLocationQuery } from '../app/services/profi
 
 const Profile = ({navigation}) => {
     const localId = useSelector((state)=> state.auth.localId)
-    const {data:locationFormatted} = useGetUserLocationQuery(localId)
+    const {data:locationFormatted, isLoading} = useGetUserLocationQuery(localId)
     const {data} = useGetImageQuery(localId)
+
+    if(isLoading) return <View><Text>cargando...</Text></View>
+
   return (
     <View style={styles.container}>
         <Image
