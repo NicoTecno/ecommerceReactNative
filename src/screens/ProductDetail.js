@@ -3,13 +3,35 @@ import colors from '../utils/globals/colors'
 import { useDispatch } from 'react-redux'
 import { addCartItem } from '../features/cart/cartSlice'
 import { useGetProductQuery } from '../app/services/shop'
-
+//
+import Counter from '../components/Counter'
 const ProductDetail = ({route}) => {
-  const dispatch = useDispatch()
-  const {productId} = route.params
-  const {data:product,isLoading} = useGetProductQuery(productId)
+  //const dispatch = useDispatch()
+  //const {productId} = route.params
+  //const {data:product,isLoading} = useGetProductQuery(productId)
   
-  if(product) console.log(product)
+  //if(product) console.log(product)
+
+  //PROBANDO FITRAR ACA//tendria que traer todos  y filtrar por id
+  /*
+  useEffect(()=>{
+    //setProductsFiltered(products)
+    if( products)  setProductsFiltered(products.filter(product => product.category === categorySelected))
+    if(keyword) setProductsFiltered(products.filter(product => {
+     const productTitleLower = product.title.toLowerCase()
+     const keywordLower = keyword.toLowerCase()
+     return productTitleLower.includes(keywordLower)
+   }))
+   },[categorySelected,keyword,products])*/
+   const dispatch = useDispatch()
+   const {productId} = route.params
+   const {data:product,isLoading,isError,isSuccess} = useGetProductQuery(productId)
+ 
+   if(isLoading) return <View><Text>cargando...</Text></View>
+   if(isError) return <View><Text>error...</Text></View>
+   if(isSuccess && product === null) return <View><Text>No se encontro el producto</Text></View>
+
+
 
   if(isLoading) return <View><Text>cargando...</Text></View>
 
@@ -27,9 +49,13 @@ const ProductDetail = ({route}) => {
         </View>
         <View style={styles.containerPrice }>
           <Text style={styles.price}>$ {product.price}</Text>
-          <Pressable style={styles.buyNow} onPress={()=>dispatch(addCartItem(product))}>
+          <Counter 
+            initialValue={1}
+            product={product} 
+            textButton="Agregar al carrito" />
+          {/* <Pressable style={styles.buyNow} onPress={()=>dispatch(addCartItem(product))}>
             <Text style={styles.buyNowText}>Carrito</Text>
-          </Pressable>
+          </Pressable> */}
         </View>
       </View>
     </View>
