@@ -4,6 +4,8 @@ import AddButton from '../components/AddButton'
 import * as ImagePicker from 'expo-image-picker'
 import { useGetImageQuery, usePutImageMutation } from '../app/services/profile'
 import { useSelector } from 'react-redux'
+import colors from '../utils/globals/colors'
+import ButtomNewCustomizable from '../components/ButtomNewCustomizable'
 
 
 const ImageSelector = ({navigation}) => {
@@ -51,8 +53,8 @@ const ImageSelector = ({navigation}) => {
             resizeMode='cover'
 
         />
-        <AddButton title="Tomar foto" onPress={pickImage} />
-        <AddButton title="Confirm photo" onPress={confirmImage} />
+        <ButtomNewCustomizable title={"Agregar Imagen de perfil"}  onPress={pickImage} color={colors.verdeClaro}/>
+        <ButtomNewCustomizable title={"Confirmar photo"}  onPress={confirmImage} color={colors.verdeClaro}/>
     </View>
   )
 }

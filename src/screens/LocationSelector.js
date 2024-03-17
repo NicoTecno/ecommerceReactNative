@@ -5,6 +5,8 @@ import AddButton from '../components/AddButton'
 import * as Location from "expo-location"
 import { useSelector } from 'react-redux'
 import { usePutUserLocationMutation } from '../app/services/profile'
+import colors from '../utils/globals/colors'
+import ButtomNewCustomizable from '../components/ButtomNewCustomizable'
 
 
 const LocationSelector = ({navigation}) => {
@@ -59,7 +61,7 @@ const LocationSelector = ({navigation}) => {
     <View style={styles.container}>
       <Text style={styles.text}>{address}</Text>
       <MapPreview latitude={location.latitude} longitude={location.longitude}/>
-      <AddButton title="Confirmar Localizacion"  onPress={onConfirmAddress} />
+      <ButtomNewCustomizable title={"Confirmar Localizacion"} onPress={onConfirmAddress} color={colors.verdeClaro}/>
     </View>
   )
 }
