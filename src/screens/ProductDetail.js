@@ -23,6 +23,8 @@ const ProductDetail = ({route}) => {
      return productTitleLower.includes(keywordLower)
    }))
    },[categorySelected,keyword,products])*/
+
+   
    const dispatch = useDispatch()
    const {productId} = route.params
    const {data:product,isLoading,isError,isSuccess} = useGetProductQuery(productId)

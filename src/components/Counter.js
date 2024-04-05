@@ -40,7 +40,7 @@ import { useDispatch } from 'react-redux'
 import { addCartItem } from '../features/cart/cartSlice'
 import colors from '../utils/globals/colors'
 import ButtomNewCustomizable from './ButtomNewCustomizable'
-//
+
 
 const Counter = ({initialValue, textButton, product}) => {
   const [count, setCount] = useState(initialValue);

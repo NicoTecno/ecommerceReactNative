@@ -5,6 +5,15 @@ import MainNavigator from './src/navigation/MainNavigator'
 import colors from './src/utils/globals/colors'
 import { store } from './src/app/store'
 import { Provider } from 'react-redux'
+import { init } from './src/utils/db'
+
+
+(async () => {
+  const table = await init()
+  console.log(table)
+})()
+//init()
+
 
 const App = () => {
 
