@@ -10,21 +10,24 @@ import { useDispatch, useSelector } from "react-redux"
 import { clearUser } from "../features/auth/authSlice"
 import { deleteSession } from "../utils/db"
 
+//
+import LoadingSpinner from '../components/LoadingSpinner'
+
 
 const Profile = ({navigation}) => {
     const localId = useSelector((state)=> state.auth.localId)
+    //const idToken = useSelector((state) => state.auth.idToken)
+    const dispatch = useDispatch()
     const {data:locationFormatted, isLoading} = useGetUserLocationQuery(localId)
     const {data} = useGetImageQuery(localId)
-
-    if(isLoading) return <View><Text>cargando...</Text></View>
-
-    const dispatch = useDispatch()
-    const idToken = useSelector((state) => state.auth.idToken)
-
+    
     const onLogout = () => {
         dispatch(clearUser())
         deleteSession()
     }
+
+    if(isLoading) return <LoadingSpinner/>
+
 
   return (
     <View style={styles.container}>
