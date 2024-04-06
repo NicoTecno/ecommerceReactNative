@@ -64,6 +64,7 @@ import { useGetProductsByCategoryQuery } from '../app/services/shop'
 //import LoadingSpinner from '../components/LoadingSpinner'
 //import Error from '../components/Error'
 //import EmptyListComponent from '../components/EmptyListComponent'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 const ProductsByCategory = ({navigation,route}) => {
 
@@ -81,7 +82,7 @@ const ProductsByCategory = ({navigation,route}) => {
    }))
    },[categorySelected,keyword,products])
 
-  if(isLoading) return <View><Text>cargando...</Text></View>
+  if(isLoading) return <LoadingSpinner/>
   if(isError) return console.log(products)//<View><Text>erroor...</Text></View>
   if(isSuccess && products.length === 0) return 
   const handlerKeyword = (k) => {

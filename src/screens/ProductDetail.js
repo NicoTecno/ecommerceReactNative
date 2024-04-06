@@ -35,7 +35,7 @@ const ProductDetail = ({route}) => {
 
 
 
-  if(isLoading) return <View><Text>cargando...</Text></View>
+  //if(isLoading) return <View><Text>cargando...</Text></View>
 
   return (
     <View style={styles.container}>

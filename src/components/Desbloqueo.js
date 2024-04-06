@@ -1,32 +1,10 @@
-/*import { StyleSheet } from 'react-native'
-import { View, ActivityIndicator } from 'react-native'
-import colors from '../utils/globals/colors'
-
-
-const LoadingSpinner = () => {
-  return (
-    <View style={styles.container}>
-      <ActivityIndicator size={80} color={colors.verdeClaro} />
-    </View>
-  )
-}
-
-export default LoadingSpinner
-
-const styles = StyleSheet.create({
-  container:{ 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center',
-    backgroundColor:colors.green1}
-})*/
 import React, { useRef, useEffect } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import LottieView from 'lottie-react-native';
 import colors from '../utils/globals/colors'
 
 
-export default function LoadingSpinner() {
+export default function Desbloqueo() {
   const animation = useRef(null);
 
 
@@ -40,8 +18,9 @@ export default function LoadingSpinner() {
           height: 200,
           backgroundColor: colors.blanco,
         }}
-        source={require('../../assets/Animation.json')}
+        source={require('../../assets/AnimationDesbloqueo.json')}
       />
+      
     </View>
   );
 }
