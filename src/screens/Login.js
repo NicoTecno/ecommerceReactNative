@@ -37,7 +37,7 @@ const Login = ({navigation}) => {
       }
       deleteSession()
       insertSession(data)
-      dispatch(setUser({email:data.email,idToken:data.idToken,localId:data.localId}))
+      dispatch(setUser({email:data.email, idToken:data.idToken, localId:data.localId}))
 
     } catch (error) {
 
