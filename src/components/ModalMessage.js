@@ -34,13 +34,13 @@ const styles = StyleSheet.create({
         alignItems:"center"
     },
     content:{
-        width:"90%",
+        width:"80%",
         alignItems:"center",
         justifyContent:"center",
-        backgroundColor:colors.green1,
+        backgroundColor:colors.verdeItermedio,
         padding:30,
         gap:20,
-        borderRadius:5
+        borderRadius:25
     },
     text:{
         fontSize:16,

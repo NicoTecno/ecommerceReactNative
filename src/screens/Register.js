@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     },
     container:{
       width:"90%",
-      backgroundColor:colors.green1,
+      backgroundColor:colors.verdeItermedio,
       gap:15,
       borderRadius:10,
       justifyContent:"center",

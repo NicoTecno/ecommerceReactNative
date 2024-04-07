@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View,FlatList,Pressable } from 'react-native'
 import CartItem from '../components/CartItem'
 import fonts from '../utils/globals/fonts'
+import colors from '../utils/globals/colors'
 import { useSelector,useDispatch} from 'react-redux'
 import { usePostOrderMutation } from '../app/services/orders'
 import { deleteCart } from '../features/cart/cartSlice'
@@ -8,6 +9,8 @@ import React, { useEffect, useState } from 'react';
 
 import { Image } from 'react-native'
 import imagenLocal from '../../assets/carrito.png'
+import ButtomNewCustomizable from '../components/ButtomNewCustomizable'
+
 const imagenUri = Image.resolveAssetSource(imagenLocal).uri;
 
 const Cart = ({navigation}) => {
@@ -70,12 +73,9 @@ const Cart = ({navigation}) => {
         />
         
         <View style={styles.confirmContainer}>
-            <Pressable onPress={handlerAddOrder}>
-                <Text style={styles.confirmText}>Confirmar</Text>
-            </Pressable>
-            <Text style={styles.confirmText}>Total: $ {cart.total}</Text>
-        </View>
-
+            <ButtomNewCustomizable title={"Confirmar"}  onPress={handlerAddOrder} color={colors.verdeClaro}/>
+                <Text style={styles.confirmText}>Total: $ {cart.total}</Text>
+            </View>
         </View>
         </>
       )}</>
@@ -91,13 +91,16 @@ const styles = StyleSheet.create({
     },
     confirmContainer:{
         flexDirection:"row",
-        backgroundColor:"gray",
+        backgroundColor:colors.gris,
         padding:25,
         justifyContent:"space-between",
     },
     confirmText:{
         fontFamily:fonts.PlayfairDisplaySCRegular,
-        fontSize:18,
-        color:"white"
+        fontSize:19,
+        color:"white",
+        backgroundColor:colors.naranjaOscuro,
+        borderRadius: 10,
+        padding:4
     }
 })

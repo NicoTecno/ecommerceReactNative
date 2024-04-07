@@ -21,11 +21,14 @@ const styles = StyleSheet.create({
         backgroundColor:colors.green3,
         padding:10,
         alignItems:"center",
-        borderRadius:10
+        borderRadius:10,
+        borderBlockColor:"white",
+        borderWidth: 3
     },
     text:{
         textAlign:"center",
         color:"white",
-        fontSize:18
+        fontSize:18,
+        fontWeight:"800"
     }
 })

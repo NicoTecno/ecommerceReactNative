@@ -3,53 +3,58 @@ import colors from '../utils/globals/colors'
 import { useDispatch } from 'react-redux'
 import { addCartItem } from '../features/cart/cartSlice'
 import { useGetProductQuery } from '../app/services/shop'
-//
 import Counter from '../components/Counter'
+import LoadingSpinner from '../components/LoadingSpinner';
+//
+import Lupa from '../components/Lupa';
+import fonts from '../utils/globals/fonts'
+
+
+
+import React, { useEffect, useState } from 'react';
+
 const ProductDetail = ({route}) => {
-  //const dispatch = useDispatch()
-  //const {productId} = route.params
-  //const {data:product,isLoading} = useGetProductQuery(productId)
-  
-  //if(product) console.log(product)
 
-  //PROBANDO FITRAR ACA//tendria que traer todos  y filtrar por id
-  /*
-  useEffect(()=>{
-    //setProductsFiltered(products)
-    if( products)  setProductsFiltered(products.filter(product => product.category === categorySelected))
-    if(keyword) setProductsFiltered(products.filter(product => {
-     const productTitleLower = product.title.toLowerCase()
-     const keywordLower = keyword.toLowerCase()
-     return productTitleLower.includes(keywordLower)
-   }))
-   },[categorySelected,keyword,products])*/
-
-   
    const dispatch = useDispatch()
    const {productId} = route.params
    const {data:product,isLoading,isError,isSuccess} = useGetProductQuery(productId)
+
+   const [condicion, setCondicion] = useState(true);
+
+
+   useEffect(() => {
+    if (isSuccess && product === null) {
+      setCondicion(true);
+    } else {
+      setCondicion(false);
+    }
+ }, [product]);
  
-   if(isLoading) return <View><Text>cargando...</Text></View>
+   if (isLoading) return <LoadingSpinner />;
    if(isError) return <View><Text>error...</Text></View>
-   if(isSuccess && product === null) return <View><Text>No se encontro el producto</Text></View>
-
-
-
-  //if(isLoading) return <View><Text>cargando...</Text></View>
+   //if(isSuccess && product === null) return <View><Text>No se encontro el producto</Text></View>
 
   return (
-    <View style={styles.container}>
-    <View style={styles.content} >
-        <Image
-          style={styles.image}
-          source={{uri:product?.images ? product.images[0] : null}}
-          resizeMode='cover'
-        />
-        <View style={styles.containerText}>
-          <Text style={styles.title}>{product.title}</Text>
-          <Text>{product.description}</Text>
-        </View>
-        <View style={styles.containerPrice }>
+    <>
+    {condicion ? (
+      <View>
+        <Text style={styles.confirmText}>El producto no esta disponible</Text>
+        <Lupa/>
+      </View>
+    ) : (
+      <>
+        <View style={styles.container}>
+          <View style={styles.content} >
+          <Image
+            style={styles.image}
+            source={{uri:product?.images ? product.images[0] : null}}
+            resizeMode='cover'
+          />
+          <View style={styles.containerText}>
+            <Text style={styles.title}>{product.title}</Text>
+            <Text>{product.description}</Text>
+          </View>
+          <View style={styles.containerPrice }>
           <Text style={styles.price}>$ {product.price}</Text>
           <Counter 
             initialValue={1}
@@ -61,6 +66,10 @@ const ProductDetail = ({route}) => {
         </View>
       </View>
     </View>
+      </>
+    )}
+  </>
+    
   )
 }
 
@@ -109,5 +118,13 @@ const styles = StyleSheet.create({
   },
   buyNowText:{
     color:"white"
-  }
+  },
+  confirmText:{
+    fontFamily:fonts.PlayfairDisplaySCRegular,
+    fontSize:18,
+    color:colors.rojo,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: "45%"
+}
 })

@@ -30,7 +30,7 @@ const ProductsByCategory = ({ navigation, route }) => {
  }, [categorySelected, keyword, products]);
 
  useEffect(() => {
-    if (productsFiltered && productsFiltered.length === 0) {
+    if (isSuccess && productsFiltered && productsFiltered.length === 0) {
       setCondicion(true);
     } else {
       setCondicion(false);
@@ -43,7 +43,6 @@ const ProductsByCategory = ({ navigation, route }) => {
 
  if (isLoading) return <LoadingSpinner />;
  if (isError) return <View><Text>Error...</Text></View>;
- //if (isSuccess && products.length === 0) return <View><Text>No hay producto...</Text></View>;
 
  return (
     <>
