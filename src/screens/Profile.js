@@ -36,12 +36,10 @@ const Profile = ({navigation}) => {
             style={styles.image}
             resizeMode='cover'
         />
-        <Text style={styles.text}>{locationFormatted.address}</Text>
+        <Text style={styles.text}>{locationFormatted?.address}</Text>
         <ButtomNewCustomizable title={"Agregar Imagen de perfil"} onPress={() => navigation.navigate("ImageSelector")} color={colors.verdeClaro}/>
         <ButtomNewCustomizable title={"Agregar Direccion"} onPress={() => navigation.navigate("LocationSelector")} color={colors.verdeClaro}/>
         <ButtomNewCustomizable title={"Cerrar Sesion"}  onPress={onLogout} color={colors.rojo}/>
-        <LoadingSpinner/>
-
     </View>
   )
 }
