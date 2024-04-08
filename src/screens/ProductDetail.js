@@ -1,4 +1,6 @@
-import { StyleSheet, Text, View,Image,Pressable } from 'react-native'
+//import { StyleSheet, Text, View,Image,Pressable } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, ScrollView } from 'react-native';
+
 import colors from '../utils/globals/colors'
 import { useDispatch } from 'react-redux'
 import { addCartItem } from '../features/cart/cartSlice'
@@ -42,16 +44,16 @@ const ProductDetail = ({route, navigation}) => {
   };
  
   return (
-     <>
+    <>
        {condicion ? (
          <View>
            <Text style={styles.confirmText}>El producto no esta disponible</Text>
            <Lupa/>
          </View>
        ) : (
-         <>
+         <ScrollView contentContainerStyle={{ paddingBottom: "40%" }}>
            <View style={styles.container}>
-             <View style={styles.content} >
+             <View style={styles.content}>
                <Image
                  style={styles.image}
                  source={{uri:product?.images ? product.images[0] : null}}
@@ -61,29 +63,29 @@ const ProductDetail = ({route, navigation}) => {
                  <Text style={styles.title}>{product.title}</Text>
                  <Text>{product.description}</Text>
                </View>
-               <View style={styles.containerPrice }>
+               <View style={styles.containerPrice}>
                  <Text style={styles.price}>$ {product.price}</Text>
                  <Counter 
-                  initialValue={1}
-                  product={product} 
-                  textButton="Agregar al carrito"
-                  onAddToCart={() => setModalVisible(true)}
+                   initialValue={1}
+                   product={product} 
+                   textButton="Agregar al carrito"
+                   onAddToCart={() => setModalVisible(true)}
                  />
                </View>
-
              </View>
            </View>
-         </>
+         </ScrollView>
        )}
        <ModalAgregarAlCarrito
-        textButton="Volvera intentar"
-        text="Email o Contraseña invalido"
-        modalVisible={modalVisible}
-        onClose={() => setModalVisible(false)}
-        onGoToCart={handleGoToCart}
-      />
-     </>
-  );
+         textButton="Volvera intentar"
+         text="Email o Contraseña invalido"
+         modalVisible={modalVisible}
+         onClose={() => setModalVisible(false)}
+         onGoToCart={handleGoToCart}
+       />
+    </>
+   );
+   
  }
  
  export default ProductDetail;
@@ -139,5 +141,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginTop: "45%"
-}
+},scrollViewContainer: {
+  flexGrow: 1,
+},
 })
