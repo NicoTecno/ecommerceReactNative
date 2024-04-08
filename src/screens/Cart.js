@@ -56,9 +56,8 @@ const Cart = ({navigation}) => {
           
               <Image source={require('../../assets/carrito.png')} style={{width: "auto", height: 200}} />
           <View style={styles.confirmContainer}>
-              <Pressable onPress={handlerAddOrder}>
-                  <Text style={styles.confirmText}>Confirmar</Text>
-              </Pressable>
+              <ButtomNewCustomizable title={"Confirmar"} color={colors.grisClaro}/>
+
               <Text style={styles.confirmText}>Total: $ {cart.total}</Text>
           </View>
   

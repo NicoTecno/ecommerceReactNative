@@ -6,12 +6,13 @@ import colors from '../utils/globals/colors'
 import ButtomNewCustomizable from './ButtomNewCustomizable'
 
 
-const Counter = ({initialValue, textButton, product}) => {
+const Counter = ({initialValue, textButton, product, onAddToCart}) => {
   const [count, setCount] = useState(initialValue);
   const dispatch = useDispatch();
 
   const handlerAddCartItem = (quantity) => {
     dispatch(addCartItem({...product, quantity}));
+    onAddToCart();
   }
 
   const handleDecrement = () => {

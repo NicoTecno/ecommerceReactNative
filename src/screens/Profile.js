@@ -37,9 +37,9 @@ const Profile = ({navigation}) => {
             resizeMode='cover'
         />
         <Text style={styles.text}>{locationFormatted?.address}</Text>
-        <ButtomNewCustomizable title={"Agregar Imagen de perfil"} onPress={() => navigation.navigate("ImageSelector")} color={colors.verdeClaro}/>
-        <ButtomNewCustomizable title={"Agregar Direccion"} onPress={() => navigation.navigate("LocationSelector")} color={colors.verdeClaro}/>
-        <ButtomNewCustomizable title={"Cerrar Sesion"}  onPress={onLogout} color={colors.rojo}/>
+        <ButtomNewCustomizable title={"Agregar Imagen de perfil"} onPress={() => navigation.navigate("ImageSelector")} color={colors.verdeClaro} style={{ marginBottom: 10 }} iconName="camera"/>
+        <ButtomNewCustomizable title={"Agregar Direccion"} onPress={() => navigation.navigate("LocationSelector")} color={colors.verdeClaro} style={{ marginBottom: 10 }} iconName="location"/>
+        <ButtomNewCustomizable title={"Cerrar Sesion"}  onPress={onLogout} color={colors.rojo} iconName="log-out"/>
     </View>
   )
 }
