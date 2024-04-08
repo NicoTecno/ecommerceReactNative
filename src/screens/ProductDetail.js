@@ -7,6 +7,7 @@ import Counter from '../components/Counter'
 import LoadingSpinner from '../components/LoadingSpinner';
 //
 import Lupa from '../components/Lupa';
+import Error from '../components/Error'
 import fonts from '../utils/globals/fonts'
 
 import ModalAgregarAlCarrito from '../components/ModalAgregarAlCarrito'
@@ -32,7 +33,7 @@ const ProductDetail = ({route, navigation}) => {
   }, [product]);
  
   if (isLoading) return <LoadingSpinner />;
-  if(isError) return <View><Text>error...</Text></View>;
+  if(isError) return <Error />;
  
   const handleGoToCart = () => {
      setModalVisible(false);

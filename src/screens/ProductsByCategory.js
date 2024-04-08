@@ -7,7 +7,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import Lupa from '../components/Lupa';
 import fonts from '../utils/globals/fonts'
 import colors from '../utils/globals/colors';
-
+import Error from '../components/Error';
 
 const ProductsByCategory = ({ navigation, route }) => {
  const { categorySelected } = route.params;
@@ -42,7 +42,7 @@ const ProductsByCategory = ({ navigation, route }) => {
  };
 
  if (isLoading) return <LoadingSpinner />;
- if (isError) return <View><Text>Error...</Text></View>;
+ if (isError) return <Error />;
 
  return (
     <>
